@@ -21,10 +21,10 @@ var Media = (function () {
     // used render for the basic points 
     Media.prototype.render = function () {
         var writeOut = '<li>' + 'Title ' + this.title + '</li>';
-        writeOut += '<li>' + 'Author ' + this.author + '</li>';
-        writeOut += '<li>' + 'Genre ' + this.genre + '</li>';
-        writeOut += '<li>' + 'Publisher ' + this.publisher + '</li>';
-        writeOut += '<li>' + 'Rating ' + this.rating + '</li>';
+        writeOut += '<li>' + 'Author: ' + this.author + '</li>';
+        writeOut += '<li>' + 'Genre: ' + this.genre + '</li>';
+        writeOut += '<li>' + 'Publisher: ' + this.publisher + '</li>';
+        writeOut += '<li>' + 'Rating: ' + this.rating + '</li>';
         return writeOut;
     };
     Media.prototype.getImgSrc = function () {
@@ -55,7 +55,7 @@ var Book = (function (_super) {
         // added the empty and filled stars as rating, but was able to only put the rating for all books, all cds, all dvds and all comics, so i wasnt able to devide the books rating
         writeOut += '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star-empty"\>' + '<li class=\"glyphicon glyphicon-star-empty"\>' + this.rating + '</li>';
         // i used weight as a number and not a string and added (weight in KG)
-        writeOut += '<li>' + 'Weight in KG ' + this.weight + '</li>';
+        writeOut += '<li>' + 'Weight in KG: ' + this.weight + '</li>';
         writeOut += '</ul>';
         writeOut += "</div>";
         writeOut += "</div>";
@@ -81,7 +81,7 @@ var Dvd = (function (_super) {
         writeOut += _super.prototype.render.call(this);
         writeOut += '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star"\>' + this.rating + '</li>';
         // used the same thing as weight in book, used number instead of string and added duration in mins
-        writeOut += '<li>' + 'Duration in min ' + this.duration + '</li>';
+        writeOut += '<li>' + 'Duration in min: ' + this.duration + '</li>';
         writeOut += '</ul>';
         writeOut += "</div>";
         writeOut += "</div>";
@@ -106,7 +106,7 @@ var Cd = (function (_super) {
         writeOut += '<ul>';
         writeOut += _super.prototype.render.call(this);
         writeOut += '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star"\>' + '<li class=\"glyphicon glyphicon-star-empty"\>' + this.rating + '</li>';
-        writeOut += '<li>' + 'Duration in min ' + this.duration + '</li>';
+        writeOut += '<li>' + 'Duration in min: ' + this.duration + '</li>';
         writeOut += '</ul>';
         writeOut += "</div>";
         writeOut += "</div>";
