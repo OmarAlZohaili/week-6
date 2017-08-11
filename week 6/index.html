@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- my style -->
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato|Slabo+27px');
+        .row {
+            margin: 3%;
+        }
+        /* i changed the background color for each books, cds, dvds and comics to tell the difference between them */
+        
+        .bookStyle {
+            background-color: lightgreen;
+        }
+        
+        .dvdStyle {
+            background-color: lightgrey;
+        }
+        
+        .cdStyle {
+            background-color: lightblue;
+        }
+        
+        .comicStyle {
+            background-color: pink;
+        }
+        
+        ul,
+        li {
+            font-family: 'Slabo 27px', serif;
+            list-style-type: none;
+            font-size: 15pt;
+        }
+        
+        h1 {
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
+</head>
+
+<body onload='initSeller()'>
+    <script src='media.js'></script>
+    <script>
+        function initSeller() {
+            mediasArray = new Array();
+            // for rating i kept the string empty so i can put the filled and empty stars, before doing the stars the rating was a number and not a string
+            firstMedia = new Book('Wood Walker. Carags Transformation', 'Katja Brandis', 'Children', 'Arena (1 Jun 2016)', '', 1, 'https://images-na.ssl-images-amazon.com/images/I/51szaJXvM5L._SX351_BO1,204,203,200_.jpg');
+            firstMedia2 = new Book('The Foundation Trilogy: Foundation / Foundation and Imperium / Second Foundation (Robot and Foundation - the Cycle, Volume 11)', 'Isaac Asimov', 'Documentary', 'Heyne Verlag (9 May 2012)', '', 4, 'https://images-na.ssl-images-amazon.com/images/I/41G8KdkBFmL._SX326_BO1,204,203,200_.jpg');
+            secoundMedia = new Dvd('City Lights', 'Charlie Chaplin', 'Comedy', ' Criterion Collection in 2013', '', 87, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Chaplin_City_Lights_still.jpg/220px-Chaplin_City_Lights_still.jpg');
+            secondMedia2 = new Dvd('Lawrence of Arabia', 'T. E. Lawrence', 'Adventure', 'Anchor; Reprint edition (June 3, 2014)', '', 222, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Lawrence_of_arabia_ver3_xxlg.jpg/220px-Lawrence_of_arabia_ver3_xxlg.jpg');
+            thirdMedia = new Cd('Dylan (1973 album)', 'Bob Dylan', 'Rock', ' November 19, 1973 by Columbia Records', '', 33.22, 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Bob_Dylan_-_Dylan_%281973_album%29.jpg/220px-Bob_Dylan_-_Dylan_%281973_album%29.jpg');
+            thirdMedia2 = new Cd('Diamond Life', 'Sade', 'Smooth soul', '27 February 1985 by Portrait Records', '', 44.31, 'https://upload.wikimedia.org/wikipedia/en/thumb/6/69/Sade_-_Diamond_Life.png/220px-Sade_-_Diamond_Life.png');
+            fourthMedia = new Comic('The Sandman Vol. 1: Preludes & Nocturnes (New Edition) (Sandman New Editions, Band 1)', 'Sam Kieth', 'Horror', 'Vertigo; New edition. edition (19 Oct 2010)', '', 'https://images-na.ssl-images-amazon.com/images/I/51eSuKU2ajL._SX322_BO1,204,203,200_.jpg');
+            fourthMedia2 = new Comic('Modesty Blaise - The Killing Game ', 'Peter Donnell', 'Fighting', 'Titan Books (3 Oct 2017)', '', 'https://images-na.ssl-images-amazon.com/images/I/51C6yssIIhL._SX368_BO1,204,203,200_.jpg');
+
+
+            mediasArray.push(firstMedia);
+            mediasArray.push(firstMedia2);
+            mediasArray.push(secoundMedia);
+            mediasArray.push(secondMedia2);
+            mediasArray.push(thirdMedia);
+            mediasArray.push(thirdMedia2);
+            mediasArray.push(fourthMedia);
+            mediasArray.push(fourthMedia2);
+
+            seller = new Seller(mediasArray);
+            seller.showArray();
+            seller.renderAll();
+            seller.countTypeOfMedias();
+            VsArray2 = new Array();
+            // the extra medias, for example firstmedia2 means the second book and so on
+            VsArray2.push(firstMedia2);
+
+            VsArray2.push(secondMedia2);
+
+            VsArray2.push(thirdMedia2);
+
+            VsArray2.push(fourthMedia2);
+
+
+            seller2 = new Seller(VsArray2);
+            seller2.showArray();
+        }
+        //seller.renderOnPage();
+    </script>
+    <div class='container-fluid' id="mediaList">
+
+
+    </div>
+
+</body>
+
+</html>
